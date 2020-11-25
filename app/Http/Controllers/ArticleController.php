@@ -13,4 +13,6 @@ class ArticleController extends Controller
 
       return view('articles.index', compact('articles'));
     }
+
+    
 }
