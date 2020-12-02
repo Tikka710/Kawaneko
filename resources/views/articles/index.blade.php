@@ -4,27 +4,27 @@
 @section('content')
   @include('nav')
 
-<div class="container">
+<div class="container mt-4">
     <div class="text-center py-5">
-      <p>どっちのネコがかわいいか投票しよう！</p>
+      <h2 class="h4 near-moon-gradient text-black">どっちのネコがかわいい？？</h2>
      </div>
-@foreach($articles as $article) 
-  <div class="d-flex flex-row justify-content-center">
-   <div class="col-3">
-     <div class="card mt-3">
-        <div class="view view-cascade overlay">
-          <img src="{{ asset('/storage/'.$article->img)}}">
-        </div>
-        <div class="card-body elegant-color white-text">
-         <h2 class="h5 card-title">
-          {{ $article->title }}
-          </h2>
-        </div>
-      </div>
+
+  <div class="row d-flex justify-content-center">
+   <div class="row col-md-4">
+   @foreach($articles as $article) 
+      @include('articles.photo') 
+    @endforeach
     </div>
   </div>
-@endforeach
+
 
   
 </div>
 @endsection
+
+
+<style type="text/css">
+.container {
+  font-family: YakuHanJP, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", Meiryo, sans-serif;
+}
+</style>
