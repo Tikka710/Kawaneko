@@ -5,7 +5,7 @@
   @include('nav')
 
 <div class="container mt-4">
-    <div class="text-center py-5">
+    <div class="text-center py-2">
       <h2 class="h4 near-moon-gradient text-black">どっちのネコがかわいい？？</h2>
      </div>
 
