@@ -6,9 +6,16 @@
       </div>
       <div class="card-body info-color-dark white-text rounded-bottom">
         <div class="d-flex align-items-center">
-        <article-vote>
-        </article-vote>
-        
+          <div class="card-text">
+            <article-vote
+            :initial-is-voted-by='@json($article->isVotedBy(Auth::user()))'
+            :initial-count-votes='@json($article->count_votes)'
+            >
+            </article-vote>
+          </div>
+        </div>
+        <div>
+  
         </div>
         <h7 class="card-title"> {{ $article->created_at->format('Y/m/d H:i') }}</h7>
       </div>

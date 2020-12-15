@@ -43,6 +43,27 @@ class ArticleController extends Controller
       return redirect()->route('articles.index');
     }
 
+    public function vote(Request $request, Article $article)
+    {
+      $article->votes()->detach($request->user()->id);
+      $article->votes()->attach($request->user()->id);
+      
+      return [
+        'id' => $article->id,
+        'countVotes' => $article->count_votes,
+      ];
+    }
+
+    public function unvote(Request $request, Article $article)
+    {
+      $article->votes()->detach($request->user()->id);
+
+      return [
+        'id' => $article->id,
+        'countVotes' => $article->count_votes,
+      ];
+    }
+
     public function edit(Article $article)
     {
       return view('articles.edit', ['article' => $article]);
@@ -53,4 +74,6 @@ class ArticleController extends Controller
       $article = Article::find($id);
 
     }
+
+
 }
